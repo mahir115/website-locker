@@ -9,7 +9,7 @@ a web extension allows you to lock some websites with password and works just li
 3. use that password to access and enter the site.
 4. remove sites from locked (requires password).
 
--How to use?
+# How to use?
 
 1. for the first time it asks you to create a password for the extension, make sure you create a password you remember.
 2. now every time you open the extension it asks you for that password.
