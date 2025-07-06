@@ -1,0 +1,213 @@
+# Website Locker
+
+a web extension allows you to lock some websites with password and works just like AppLock but web version.
+
+# features:
+
+1. add password to the extension itself.
+2. lock any site with a password.
+3. use that password to access and enter the site.
+4. remove sites from locked (requires password).
+
+-How to use?
+
+1. for the first time it asks you to create a password for the extension, make sure you create a password you remember.
+2. now every time you open the extension it asks you for that password.
+3. you can click the '+' button to add a new site.
+4. type the site url (make sure it's correct), then type and confirm password but don't forget it.
+5. now every time you open that site you need to type the password for this site.
+6. to remove a site just access the extension popup and click "remove" then type the site password and remove it.
+
+# issues:
+the only issue is that people can still remove the extension without password and access all the sites without needing any password. make sure you use it the right way and make it hard to remove.
+
+# used CSS
+
+if you want to use the custom css i'm using in this web extension here it is and works on any html.
+````css
+:root {
+  --dark-bg: #121212;
+  --darker-bg: #0a0a0a;
+  --text-color: #e0e0e0;
+  --text-muted: #a0a0a0;
+  --accent-purple: #bb86fc;
+  --accent-purple-dark: #9a67cf;
+  --accent-red: #ff4444;
+  --accent-red-dark: #cc0000;
+  --button-shadow: #cc0000;
+}
+
+body {
+  background-color: var(--dark-bg);
+  color: var(--text-color);
+  font-family: 'Segoe UI', Arial, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 20px;
+}
+
+input[type="checkbox"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 44px;
+  height: 24px;
+  background-color: #333;
+  border-radius: 24px;
+  position: relative;
+  cursor: pointer;
+  outline: none;
+  transition: background 0.3s ease, transform 0.2s ease;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+input[type="checkbox"]:checked {
+  background-color: var(--accent-purple);
+}
+
+input[type="checkbox"]::before {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: white;
+  top: 2px;
+  left: 2px;
+  transition: all 0.3s cubic-bezier(0.25, 1.5, 0.5, 1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+input[type="checkbox"]:checked::before {
+  left: calc(100% - 22px);
+  background-color: white;
+}
+
+input[type="checkbox"]:hover::before {
+  transform: scale(1.1);
+}
+
+input[type="checkbox"]:active::before {
+  width: 24px;
+}
+
+button, 
+input[type="button"], 
+input[type="submit"],
+.button {
+  background-color: var(--accent-red);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  margin: 8px;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  position: relative;
+  box-shadow: 
+    0 4px 0 var(--accent-red-dark),
+    0 5px 15px rgba(0, 0, 0, 0.3);
+  transition: 
+    transform 0.1s ease,
+    box-shadow 0.1s ease,
+    filter 0.2s ease;
+  transform: translateY(0);
+  outline: none;
+}
+
+button:hover, 
+input[type="button"]:hover, 
+input[type="submit"]:hover,
+.button:hover {
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+  box-shadow: 
+    0 5px 0 var(--accent-red-dark),
+    0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+button:active, 
+input[type="button"]:active, 
+input[type="submit"]:active,
+.button:active {
+  transform: translateY(4px);
+  box-shadow: 
+    0 1px 0 var(--accent-red-dark),
+    0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+button:not(:active),
+input[type="button"]:not(:active),
+input[type="submit"]:not(:active),
+.button:not(:active) {
+  transition: 
+    transform 0.3s cubic-bezier(0.25, 1.5, 0.5, 1),
+    box-shadow 0.3s ease,
+    filter 0.3s ease;
+}
+
+input[type="color"] {
+  width: 60px;
+  height: 40px;
+  padding: 0;
+  border: 2px solid #444;
+  border-radius: 6px;
+  cursor: pointer;
+  background: none;
+  overflow: hidden;
+  transition: transform 0.2s ease;
+}
+
+input[type="color"]:hover {
+  transform: scale(1.05);
+}
+
+input[type="color"]::-webkit-color-swatch {
+  border: none;
+  border-radius: 4px;
+  padding: 0;
+}
+
+input[type="color"]::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+input[type="color"]::-moz-color-swatch {
+  border: none;
+  border-radius: 4px;
+}
+
+a {
+  color: var(--accent-purple);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--accent-purple-dark);
+}
+
+input, 
+textarea, 
+select {
+  background-color: #333;
+  color: var(--text-color);
+  border: 1px solid #444;
+  padding: 10px;
+  border-radius: 6px;
+  transition: border 0.3s ease;
+}
+
+input:focus, 
+textarea:focus, 
+select:focus {
+  border-color: var(--accent-purple);
+  outline: none;
+}
+
+input:focus, 
+textarea:focus, 
+select:focus {
+  box-shadow: 0 0 0 2px rgba(187, 134, 252, 0.3);
+}
+````
